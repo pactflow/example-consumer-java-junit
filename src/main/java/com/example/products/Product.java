@@ -10,12 +10,14 @@ class Product {
   private String id;
   private String name;
   private String type;
+  private Integer someotherthing;
 
   Product() {}
 
-  Product(String id, String name, String type, String version) {
+  Product(String id, String name, String type, Integer someotherthing) {
     this.id = id;
     this.name = name;
     this.type = type;
+    this.someotherthing = someotherthing;
   }
 }
