@@ -29,6 +29,7 @@ public class ProductsPactTest {
     body.stringType("name", "product name");
     body.stringType("type", "product series");
     body.stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850");
+    body.integerType("newfield", 1);
 
       return builder
         .given("a product with ID 10 exists")
@@ -63,6 +64,7 @@ public class ProductsPactTest {
                 .stringType("name", "product name")
                 .stringType("type", "product series")
                 .stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850")
+                .integerType("newfield", 1)
                 .closeObject())
           .toPact();
   }

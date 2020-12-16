@@ -10,12 +10,14 @@ class Product {
   private String id;
   private String name;
   private String type;
+  private Integer newfield;
 
   Product() {}
 
-  Product(String id, String name, String type) {
+  Product(String id, String name, String type, Integer newfield) {
     this.id = id;
     this.name = name;
     this.type = type;
+    this.newfield = newfield;
   }
 }
