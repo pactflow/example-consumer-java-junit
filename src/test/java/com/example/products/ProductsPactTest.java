@@ -63,7 +63,7 @@ public class ProductsPactTest {
                 .stringType("name", "product name")
                 .stringType("type", "product series")
                 .stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850")
-                .integerType("someotherthing", 27)
+                .integerType("someotherthing", 42)
                 .closeObject())
           .toPact();
   }
