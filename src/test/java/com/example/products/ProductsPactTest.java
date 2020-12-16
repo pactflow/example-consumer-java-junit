@@ -29,7 +29,6 @@ public class ProductsPactTest {
     body.stringType("name", "product name");
     body.stringType("type", "product series");
     body.stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850");
-    body.integerType("newThing", 27);
 
       return builder
         .given("a product with ID 10 exists")
@@ -42,13 +41,14 @@ public class ProductsPactTest {
         .toPact();
     }
 
-    @PactTestFor(pactMethod = "getProduct")
-    @Test
-    public void testGetProduct(MockServer mockServer) throws IOException {
-      Product product = new ProductClient().setUrl(mockServer.getUrl()).getProduct("10");
+    // Act + Assert
+  @PactTestFor(pactMethod = "getProduct")
+  @Test
+  public void testGetProduct(MockServer mockServer) throws IOException {
+    Product product = new ProductClient().setUrl(mockServer.getUrl()).getProduct("10");
 
-      assertThat(product.getId(), is("5cc989d0-d800-434c-b4bb-b1268499e850"));
-    }
+    assertThat(product.getId(), is("5cc989d0-d800-434c-b4bb-b1268499e850"));
+  }
 
   @Pact(consumer="pactflow-example-consumer-java-junit")
   public RequestResponsePact getProducts(PactDslWithProvider builder) {
@@ -63,7 +63,6 @@ public class ProductsPactTest {
                 .stringType("name", "product name")
                 .stringType("type", "product series")
                 .stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850")
-                .integerType("newThing", 27)
                 .closeObject())
           .toPact();
   }
