@@ -1,8 +1,8 @@
-# Example Java XML Consumer
+# Example Java Junit Consumer
 
 [![Build Status](https://travis-ci.com/pactflow/example-consumer-java-junit.svg?branch=master)](https://travis-ci.com/pactflow/example-consumer-java-junit)
 
-This is an example of a Java JSON consumer that uses Pact, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
+This is an example of a Java consumer that uses Pact with Junit, [Pactflow](https://pactflow.io) and Travis CI to ensure that it is compatible with the expectations its consumers have of it.
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
