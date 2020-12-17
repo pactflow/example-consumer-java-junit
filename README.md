@@ -6,6 +6,8 @@ This is an example of a Java consumer that uses Pact with Junit, [Pactflow](http
 
 The project uses a Makefile to simulate a very simple build pipeline with two stages - test and deploy.
 
+It is using a public tenant on Pactflow, which you can access [here](https://test.pact.dius.com.au) using the credentials `dXfltyFMgNOFZAxr8io9wJ37iUpY42M`/`O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1`.
+
 See the canonical consumer example here: https://github.com/pactflow/example-consumer
 See also the full [Pactflow CI/CD Workshop](https://docs.pactflow.io/docs/workshops/ci-cd) for which this can be substituted in as the "consumer".
 
