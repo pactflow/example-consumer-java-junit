@@ -41,7 +41,6 @@ public class ProductsPactTest {
         .toPact();
     }
 
-    // Act + Assert
   @PactTestFor(pactMethod = "getProduct")
   @Test
   public void testGetProduct(MockServer mockServer) throws IOException {

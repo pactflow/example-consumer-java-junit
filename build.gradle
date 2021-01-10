@@ -21,7 +21,6 @@ configurations {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation "org.apache.httpcomponents:fluent-hc:4.5.5"
 	testCompile 'au.com.dius:pact-jvm-consumer-junit5:4.0.10'
 
