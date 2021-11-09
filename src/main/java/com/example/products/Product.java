@@ -4,14 +4,16 @@ import lombok.Data;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Data
+@Data()
 class Product {
-  @JsonFormat( shape = JsonFormat.Shape.STRING)
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
   private String id;
   private String name;
   private String type;
+  private String toDate;
 
-  Product() {}
+  Product() {
+  }
 
   Product(String id, String name, String type) {
     this.id = id;

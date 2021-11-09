@@ -12,34 +12,28 @@ import au.com.dius.pact.consumer.junit5.PactTestFor;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
 @ExtendWith(PactConsumerTestExt.class)
 @PactTestFor(providerName = "pactflow-example-provider-springboot")
 public class ProductsPactTest {
 
-  @Pact(consumer="pactflow-example-consumer-java-junit")
+  @Pact(consumer = "pactflow-example-consumer-java-junit")
   public RequestResponsePact getProduct(PactDslWithProvider builder) {
 
     PactDslJsonBody body = new PactDslJsonBody();
     body.stringType("name", "product name");
     body.stringType("type", "product series");
     body.stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850");
+    body.datetime("toDate", "yyyy-MM-dd", Instant.now());
 
-      return builder
-        .given("a product with ID 10 exists")
-        .uponReceiving("a request to get a product")
-          .path("/product/10")
-          .method("GET")
-        .willRespondWith()
-          .status(200)
-          .body(body)
-        .toPact();
-    }
+    return builder.given("a product with ID 10 exists").uponReceiving("a request to get a product").path("/product/10")
+        .method("GET").willRespondWith().status(200).body(body).toPact();
+  }
 
   @PactTestFor(pactMethod = "getProduct")
   @Test
@@ -47,23 +41,16 @@ public class ProductsPactTest {
     Product product = new ProductClient().setUrl(mockServer.getUrl()).getProduct("10");
 
     assertThat(product.getId(), is("5cc989d0-d800-434c-b4bb-b1268499e850"));
+    assertThat(product.getToDate(), is("2021-11-09"));
   }
 
-  @Pact(consumer="pactflow-example-consumer-java-junit")
+  @Pact(consumer = "pactflow-example-consumer-java-junit")
   public RequestResponsePact getProducts(PactDslWithProvider builder) {
-      return builder
-          .given("a product with ID 10 exists")
-          .uponReceiving("a request to get all products")
-              .path("/products")
-              .method("GET")
-          .willRespondWith()
-              .status(200)
-              .body(PactDslJsonArray.arrayEachLike()
-                .stringType("name", "product name")
-                .stringType("type", "product series")
-                .stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850")
-                .closeObject())
-          .toPact();
+    return builder.given("a product with ID 10 exists").uponReceiving("a request to get all products").path("/products")
+        .method("GET").willRespondWith().status(200)
+        .body(PactDslJsonArray.arrayEachLike().stringType("name", "product name").stringType("type", "product series")
+            .stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850").closeObject())
+        .toPact();
   }
 
   @PactTestFor(pactMethod = "getProducts")
