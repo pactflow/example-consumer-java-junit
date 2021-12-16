@@ -22,7 +22,7 @@ configurations {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation "org.apache.httpcomponents:fluent-hc:4.5.5"
-	testCompile 'au.com.dius.pact.consumer:junit5:4.2.16'
+	testCompile 'au.com.dius.pact.consumer:junit5:4.2.17'
 
   compileOnly 'org.projectlombok:lombok'
   annotationProcessor 'org.projectlombok:lombok'
