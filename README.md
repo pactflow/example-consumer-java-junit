@@ -1,6 +1,6 @@
 # Example Java Junit Consumer
 
-[![Build Status](https://travis-ci.com/pactflow/example-consumer-java-junit.svg?branch=master)](https://travis-ci.com/pactflow/example-consumer-java-junit)
+![Build](https://github.com/pactflow/example-consumer-java-junit/workflows/Build/badge.svg)
 
 [![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/example-consumer-java-junit/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/example-consumer-java-junit/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
 
