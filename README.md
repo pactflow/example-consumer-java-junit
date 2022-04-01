@@ -2,9 +2,11 @@
 
 ![Build](https://github.com/pactflow/example-consumer-java-junit/workflows/Build/badge.svg)
 
-[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/example-consumer-java-junit/branches/master/latest-version/can-i-deploy/to-environment/production/badge)](https://testdemo.pactflow.io/pacticipants/example-consumer-java-junit/branches/master/latest-version/can-i-deploy/to-environment/production/badge)
+[![Can I deploy Status](https://testdemo.pactflow.io/pacticipants/pactflow-example-consumer-java-junit/branches/master/latest-version/can-i-deploy/to-environment/production/badge.svg)](https://testdemo.pactflow.io/overview/provider/pactflow-example-provider-springboot/consumer/pactflow-example-consumer-java-junit)
 
-[![example-consumer-java-junit/pactflow-example-consumer](https://testdemo.pactflow.io/pacts/provider/example-provider-springboot/consumer/example-consumer-java-junit/latest/master/badge.svg)](https://testdemo.pactflow.io/pacts/provider/example-provider-springboot/consumer/example-consumer-java-junit/latest/master)
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-springboot/consumer/pactflow-example-consumer-java-junit/latest/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-springboot/consumer/pactflow-example-consumer-java-junit/latest) (latest pact)
+
+[![Pact Status](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-springboot/consumer/pactflow-example-consumer-java-junit/latest/prod/badge.svg)](https://testdemo.pactflow.io/pacts/provider/pactflow-example-provider-springboot/consumer/pactflow-example-consumer-java-junit/latest/prod) (prod/prod pact)
 
 This is an example of a Java consumer that uses Pact with Junit, [Pactflow](https://pactflow.io) and GitHub Actions to ensure that it is compatible with the expectations its consumers have of it.
 
