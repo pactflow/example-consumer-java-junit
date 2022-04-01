@@ -16,13 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+      # note currently PACT_PROVIDER isn't used in the code
         pact_provider:
           [
             "pactflow-example-provider-springboot",
             # "pactflow-example-provider-dredd",
             # "pactflow-example-provider-restassured",
             # "pactflow-example-provider-postman",
-            "pactflow-example-provider",
+            # "pactflow-example-provider",
             # 'pactflow-example-bi-directional-provider-dotnet'
           ]
     steps:
