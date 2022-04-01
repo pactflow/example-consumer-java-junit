@@ -17,7 +17,6 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
 @ExtendWith(PactConsumerTestExt.class)
 @PactTestFor(providerName = "pactflow-example-provider-springboot")
 public class ProductsPactTest {
