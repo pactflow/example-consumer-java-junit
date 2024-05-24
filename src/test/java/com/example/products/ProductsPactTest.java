@@ -1,6 +1,8 @@
 package com.example.products;
 
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.web.client.HttpClientErrorException;
+
 import au.com.dius.pact.consumer.MockServer;
 import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
@@ -17,10 +19,37 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(PactConsumerTestExt.class)
 @PactTestFor(providerName = "pactflow-example-provider-springboot")
 public class ProductsPactTest {
+
+  @Pact(consumer="pactflow-example-consumer-java-junit")
+  public RequestResponsePact getProductDoesNotExist(PactDslWithProvider builder) {
+
+    PactDslJsonBody body = new PactDslJsonBody();
+    body.stringType("name", "product name");
+    body.stringType("type", "product series");
+    body.stringType("id", "5cc989d0-d800-434c-b4bb-b1268499e850");
+
+      return builder
+        .given("a product with ID 10 does not exist")
+        .uponReceiving("a request to get a product")
+          .path("/product/10")
+          .method("GET")
+        .willRespondWith()
+          .status(404)
+        .toPact();
+    }
+
+  @PactTestFor(pactMethod = "getProductDoesNotExist", pactVersion = PactSpecVersion.V3)
+  @Test
+  public void testGetProductDoesNotExist(MockServer mockServer) throws IOException {
+          assertThrows(java.io.IOException.class,
+                () -> new ProductClient().setUrl(mockServer.getUrl()).getProduct("10"));
+              }
 
   @Pact(consumer="pactflow-example-consumer-java-junit")
   public RequestResponsePact getProduct(PactDslWithProvider builder) {
