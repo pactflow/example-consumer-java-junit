@@ -10,6 +10,7 @@ import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
 import org.junit.jupiter.api.Test;
+import au.com.dius.pact.core.model.PactSpecVersion; // required for v4.6.x to set pactVersion
 
 import java.io.IOException;
 import java.util.List;
@@ -40,7 +41,7 @@ public class ProductsPactTest {
         .toPact();
     }
 
-  @PactTestFor(pactMethod = "getProduct")
+  @PactTestFor(pactMethod = "getProduct", pactVersion = PactSpecVersion.V3)
   @Test
   public void testGetProduct(MockServer mockServer) throws IOException {
     Product product = new ProductClient().setUrl(mockServer.getUrl()).getProduct("10");
@@ -65,7 +66,7 @@ public class ProductsPactTest {
           .toPact();
   }
 
-  @PactTestFor(pactMethod = "getProducts")
+  @PactTestFor(pactMethod = "getProducts", pactVersion = PactSpecVersion.V3)
   @Test
   public void testGetProducts(MockServer mockServer) throws IOException {
     List<Product> products = new ProductClient().setUrl(mockServer.getUrl()).getProducts();
