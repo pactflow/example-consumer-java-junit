@@ -1,13 +1,15 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.2.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
 	id 'java'
-  id "au.com.dius.pact" version "4.5.9"
+  id "au.com.dius.pact" version "4.5.13"
 }
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+java {
+	sourceCompatibility = '17'
+}
 
 repositories {
 	mavenCentral()
@@ -21,8 +23,8 @@ configurations {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation "org.apache.httpcomponents:fluent-hc:4.5.5"
-	testImplementation 'au.com.dius.pact.consumer:junit5:4.5.9'
+	implementation "org.apache.httpcomponents:fluent-hc:4.5.14"
+	testImplementation 'au.com.dius.pact.consumer:junit5:4.5.13'
 
   compileOnly 'org.projectlombok:lombok'
   annotationProcessor 'org.projectlombok:lombok'
